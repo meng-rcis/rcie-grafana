@@ -436,7 +436,7 @@
             "uid": "hH_Wpg4Vz"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_response_time_seconds_count{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[1m])) by (job, instance)",
+          "expr": "sum(rate(http_response_time_seconds_count{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[10s])) by (job, instance)",
           "legendFormat": "tps",
           "range": true,
           "refId": "Total-Request-Rate"
@@ -447,7 +447,7 @@
             "uid": "hH_Wpg4Vz"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[1m])) by (job, instance) - sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\", status=\"200\"}[1m])) by (job, instance)",
+          "expr": "sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[10s])) by (job, instance) - sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\", status=\"200\"}[10s])) by (job, instance)",
           "hide": false,
           "legendFormat": "tps_error",
           "range": true,
@@ -577,6 +577,6 @@
   "timezone": "",
   "title": "API Node v2",
   "uid": "cMSBrFwVz",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }

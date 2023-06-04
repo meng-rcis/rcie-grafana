@@ -431,8 +431,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -453,7 +452,6 @@
       "id": 16,
       "interval": "5s",
       "libraryPanel": {
-        "description": "Transactions Per Second",
         "meta": {
           "connectedDashboards": 1,
           "created": "2023-04-18T07:15:00Z",
@@ -462,9 +460,9 @@
             "id": 1,
             "name": "admin"
           },
-          "folderName": "General",
+          "folderName": "",
           "folderUid": "",
-          "updated": "2023-05-08T19:02:23Z",
+          "updated": "2023-06-04T17:27:39.445138665Z",
           "updatedBy": {
             "avatarUrl": "/avatar/46d229b033af06a191ff2267bca9ae56",
             "id": 1,
@@ -472,9 +470,8 @@
           }
         },
         "name": "TPS",
-        "type": "timeseries",
         "uid": "j9HyK5P4k",
-        "version": 7
+        "version": 11
       },
       "maxDataPoints": 3000,
       "options": {
@@ -496,7 +493,7 @@
             "uid": "hH_Wpg4Vz"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_response_time_seconds_count{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[1m])) by (job, instance)",
+          "expr": "sum(rate(http_response_time_seconds_count{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[10s])) by (job, instance)",
           "legendFormat": "total-req-rate",
           "range": true,
           "refId": "Total-Request-Rate"
@@ -507,7 +504,7 @@
             "uid": "hH_Wpg4Vz"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[1m])) by (job, instance) - sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\", status=\"200\"}[1m])) by (job, instance)",
+          "expr": "sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[10s])) by (job, instance) - sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\", status=\"200\"}[10s])) by (job, instance)",
           "hide": false,
           "legendFormat": "error-req-rate",
           "range": true,
@@ -788,6 +785,6 @@
   "timezone": "",
   "title": "API Node",
   "uid": "7lAyM14Vk",
-  "version": 28,
+  "version": 29,
   "weekStart": ""
 }
