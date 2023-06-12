@@ -410,7 +410,7 @@
       },
       "gridPos": {
         "h": 12,
-        "w": 12,
+        "w": 8,
         "x": 0,
         "y": 12
       },
@@ -447,7 +447,7 @@
             "uid": "hH_Wpg4Vz"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[10s])) by (job, instance) - sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\", status=\"200\"}[10s])) by (job, instance)",
+          "expr": "sum(rate(http_requests_total{job=\"api-golang\", instance=\"10.104.0.3:8000\", status=\"500\"}[10s])) by (job, instance)",
           "hide": false,
           "legendFormat": "tps_error",
           "range": true,
@@ -524,8 +524,8 @@
       },
       "gridPos": {
         "h": 12,
-        "w": 12,
-        "x": 12,
+        "w": 8,
+        "x": 8,
         "y": 12
       },
       "id": 14,
@@ -551,7 +551,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "1000 * sum(rate(http_response_time_seconds_sum{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[1m])) by (job, instance) /\nsum(rate(http_response_time_seconds_count{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[1m])) by (job, instance)",
+          "expr": "1000 * sum(rate(http_response_time_seconds_sum{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[10s])) by (job, instance) /\nsum(rate(http_response_time_seconds_count{job=\"api-golang\", instance=\"10.104.0.3:8000\"}[10s])) by (job, instance)",
           "instant": false,
           "legendFormat": "response_time",
           "range": true,
@@ -570,13 +570,13 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
-    "to": "now"
+    "from": "2023-06-12T04:33:10.000Z",
+    "to": "2023-06-12T07:33:10.000Z"
   },
   "timepicker": {},
   "timezone": "",
   "title": "API Node v2",
   "uid": "cMSBrFwVz",
-  "version": 3,
+  "version": 6,
   "weekStart": ""
 }
